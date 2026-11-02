@@ -37,6 +37,13 @@
     footer { color:var(--muted); border-top:1px solid var(--line); padding:22px 0 40px; font-size:13px; }
     @media(max-width:600px) { .wrap { padding:0 17px; } header { padding-top:31px; } h1 { font-size:37px; } nav a { padding:8px 13px; } }
     @media(prefers-color-scheme:dark) { :root { --bg:#101723; --card:#172131; --text:#eef3fc; --muted:#aebbd0; --line:#344255; --accent:#94b0ff; --accent-soft:#1a2b49; } .note { color:#d6e3ff; } }
+    .reading-controls {display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin:0 0 20px;}
+    .reading-controls label, .reading-status {font-size:15px;color:var(--muted);}
+    .reading-check {display:inline-flex;align-items:center;gap:8px;margin-top:12px;cursor:pointer;font-weight:650;font-size:15px;}
+    .reading-check input, #hide-read {width:19px;height:19px;accent-color:#345de3;cursor:pointer;}
+    .entry.is-read {opacity:.66;}
+    .entry.is-read h3 {text-decoration:line-through;text-decoration-color:var(--muted);}
+    .entry.hidden-read {display:none;}
   </style>
 </head>
 <body>
@@ -47,6 +54,7 @@
     <nav aria-label="Kategorie"><a href="#ai">AI</a><a href="#backend">Backend</a><a href="#historie">Historie</a><a href="#ostatni">Ostatní</a></nav>
   </div></header>
   <main class="wrap">
+    <div class="reading-controls"><label><input id="hide-read" type="checkbox"> Skrýt přečtené</label><span id="reading-status" class="reading-status" aria-live="polite"></span></div>
     <section id="ai">
       <div class="section-head"><h2>AI</h2><span class="hint">Agenti, Codex, nástroje · 18 článků</span></div>
       <!-- ARTICLES:AI:START -->
@@ -54,91 +62,109 @@
         <h3><a href="https://dev.to/tomerbarm/i-run-my-whole-company-through-a-coordinated-team-of-claude-code-sessions-5ff0" target="_blank" rel="noopener noreferrer">1. Jak solo founder provozuje startup s týmem Claude Code agentů</a></h3>
         <p>Tomer Bar-Meir (BlueVeta). Vlastní sessions pro backend, billing a marketing, Git worktrees, společná dokumentace, schvalování změn. Začít tímto.</p>
         <div class="meta"><span class="priority p1">Priorita P1</span> · <a class="read" href="https://dev.to/tomerbarm/i-run-my-whole-company-through-a-coordinated-team-of-claude-code-sessions-5ff0" target="_blank" rel="noopener noreferrer">Otevřít článek</a></div>
+      <label class="reading-check"><input type="checkbox" data-reading-id="article-1" aria-label="Označit článek 1 jako přečtený"> Přečteno</label>
       </article>
       <article class="entry">
         <h3><a href="https://ulisten.ai/channels/y-combinator/conductor-ceo-charlie-holtz-walks-us-through-his-ai-coding-s_fQmlML9Lay4/transcript" target="_blank" rel="noopener noreferrer">2. Conductor CEO: skutečný workflow s Codexem a Claude</a></h3>
         <p>Charlie Holtz. Přepis 16min rozhovoru s ukázkou orchestrátoru, paralelních agentů a rozhodování co nechat člověku. Textový přepis, není nutné sledovat video.</p>
         <div class="meta"><span class="priority p1">Priorita P1</span> · <a class="read" href="https://ulisten.ai/channels/y-combinator/conductor-ceo-charlie-holtz-walks-us-through-his-ai-coding-s_fQmlML9Lay4/transcript" target="_blank" rel="noopener noreferrer">Otevřít článek</a></div>
+      <label class="reading-check"><input type="checkbox" data-reading-id="article-2" aria-label="Označit článek 2 jako přečtený"> Přečteno</label>
       </article>
       <article class="entry">
         <h3><a href="https://www.praetorian.com/blog/deterministic-ai-orchestration-a-platform-architecture-for-autonomous-development/" target="_blank" rel="noopener noreferrer">3. Deterministická orchestrace AI agentů v reálné firmě</a></h3>
         <p>Praetorian. Hlubší architektura koordinace 39 agentů, práce s kontextem, deterministické workflow a úspora tokenů. Pokročilé čtení.</p>
         <div class="meta"><span class="priority p2">Priorita P2</span> · <a class="read" href="https://www.praetorian.com/blog/deterministic-ai-orchestration-a-platform-architecture-for-autonomous-development/" target="_blank" rel="noopener noreferrer">Otevřít článek</a></div>
+      <label class="reading-check"><input type="checkbox" data-reading-id="article-3" aria-label="Označit článek 3 jako přečtený"> Přečteno</label>
       </article>
       <article class="entry">
         <h3><a href="https://dev2025g.lowtouch.ai/how-we-rolled-out-claude-code-across-an-entire-company/" target="_blank" rel="noopener noreferrer">4. Jak zavést Claude Code do celé firmy</a></h3>
         <p>Rejith Krishnan (lowtouch.ai). Zkušenost ze zavádění do engineeringu, marketingu, provozu a HR; pravidla pro správu kontextu a zabezpečení.</p>
         <div class="meta"><span class="priority p3">Priorita P3</span> · <a class="read" href="https://dev2025g.lowtouch.ai/how-we-rolled-out-claude-code-across-an-entire-company/" target="_blank" rel="noopener noreferrer">Otevřít článek</a></div>
+      <label class="reading-check"><input type="checkbox" data-reading-id="article-4" aria-label="Označit článek 4 jako přečtený"> Přečteno</label>
       </article>
       <article class="entry">
         <h3><a href="https://www.datacamp.com/tutorial/claude-code-agent-teams" target="_blank" rel="noopener noreferrer">5. Claude Code Agent Teams: návod krok za krokem</a></h3>
         <p>DataCamp. Praktická ukázka nastavení team leada, specialistů a paralelního vývoje včetně promptů a řešení konfliktů.</p>
         <div class="meta"><span class="priority p1">Priorita P1</span> · <a class="read" href="https://www.datacamp.com/tutorial/claude-code-agent-teams" target="_blank" rel="noopener noreferrer">Otevřít článek</a></div>
+      <label class="reading-check"><input type="checkbox" data-reading-id="article-5" aria-label="Označit článek 5 jako přečtený"> Přečteno</label>
       </article>
       <article class="entry">
         <h3><a href="https://continuumcode.ai/guides/claude-code-agent-teams/" target="_blank" rel="noopener noreferrer">6. Claude Code Agent Teams: nastavení, tasky a limity</a></h3>
         <p>Continuum. Přesné zapnutí Agent Teams, sdílené tasky, izolace souborů, náklady a omezení; důležité pro práci v rámci subscription.</p>
         <div class="meta"><span class="priority p2">Priorita P2</span> · <a class="read" href="https://continuumcode.ai/guides/claude-code-agent-teams/" target="_blank" rel="noopener noreferrer">Otevřít článek</a></div>
+      <label class="reading-check"><input type="checkbox" data-reading-id="article-6" aria-label="Označit článek 6 jako přečtený"> Přečteno</label>
       </article>
       <article class="entry">
         <h3><a href="https://learn.chatgpt.com/docs/agent-configuration/subagents" target="_blank" rel="noopener noreferrer">7. Codex subagents: oficiální nastavení paralelních agentů</a></h3>
         <p>OpenAI oficiální dokumentace: specializovaní subagenti, modely, reasoning effort a konkrétní prompt pro paralelní review. Relevantní pro ChatGPT subscription.</p>
         <div class="meta"><span class="priority p1">Priorita P1</span> · <a class="read" href="https://learn.chatgpt.com/docs/agent-configuration/subagents" target="_blank" rel="noopener noreferrer">Otevřít článek</a></div>
+      <label class="reading-check"><input type="checkbox" data-reading-id="article-7" aria-label="Označit článek 7 jako přečtený"> Přečteno</label>
       </article>
       <article class="entry">
         <h3><a href="https://learn.chatgpt.com/docs/environments/git-worktrees" target="_blank" rel="noopener noreferrer">8. Codex Git worktrees pro paralelní vývoj</a></h3>
         <p>Oficiální dokumentace. Jak oddělit práci agentů v Git worktrees a zabránit přepisování změn v repozitáři.</p>
         <div class="meta"><span class="priority p2">Priorita P2</span> · <a class="read" href="https://learn.chatgpt.com/docs/environments/git-worktrees" target="_blank" rel="noopener noreferrer">Otevřít článek</a></div>
+      <label class="reading-check"><input type="checkbox" data-reading-id="article-8" aria-label="Označit článek 8 jako přečtený"> Přečteno</label>
       </article>
       <article class="entry">
         <h3><a href="https://dev.to/pvhee/the-nightly-ralph-loop-14f8" target="_blank" rel="noopener noreferrer">Ralph Loop v praxi: 82 PR za dva týdny bez API</a></h3>
         <p>GitHub backlog → headless Claude Code → PR. systemd timer, izolace oprávnění, limity subscription, review, konkrétní selhání. Vysoká priorita. Autor používá předplatné, ne samostatný API účet.</p>
         <div class="meta"><span class="priority p1">Priorita P1</span> · <a class="read" href="https://dev.to/pvhee/the-nightly-ralph-loop-14f8" target="_blank" rel="noopener noreferrer">Otevřít článek</a> · <a class="read" href="https://www.reddit.com/r/ClaudeAI/comments/1xcoi5a/how_i_stopped_chatting_with_claude_code_a_loop/" target="_blank" rel="noopener noreferrer">Reddit diskuse autora</a></div>
+      <label class="reading-check"><input type="checkbox" data-reading-id="article-9" aria-label="Označit článek 9 jako přečtený"> Přečteno</label>
       </article>
       <article class="entry">
         <h3><a href="https://claude.com/resources/articles/introducing-routines-in-claude-code" target="_blank" rel="noopener noreferrer">Claude Code Routines: automatické zpracování backlogu v Pro</a></h3>
         <p>Cloudové naplánované běhy nad repozitářem bez zapnutého Macu. Claude Pro max. 5 routine spuštění denně; započítávají se do subscription limitů. Umožní denně vybírat issues a vytvářet draft PR; není nutné API token billing.</p>
         <div class="meta"><span class="priority p1">Priorita P1</span> · <a class="read" href="https://claude.com/resources/articles/introducing-routines-in-claude-code" target="_blank" rel="noopener noreferrer">Otevřít článek</a></div>
+      <label class="reading-check"><input type="checkbox" data-reading-id="article-10" aria-label="Označit článek 10 jako přečtený"> Přečteno</label>
       </article>
       <article class="entry">
         <h3><a href="https://learn.chatgpt.com/docs/automations" target="_blank" rel="noopener noreferrer">Codex Scheduled: automatické opakované úlohy v ChatGPT Plus</a></h3>
         <p>Oficiální návod pro Scheduled v ChatGPT desktop/web. Lokální projekt potřebuje zapnutý Mac; webové úlohy nemají přímý přístup k lokální složce. Nejprve vyzkoušet bez dalšího předplatného.</p>
         <div class="meta"><span class="priority p1">Priorita P1</span> · <a class="read" href="https://learn.chatgpt.com/docs/automations" target="_blank" rel="noopener noreferrer">Otevřít článek</a></div>
+      <label class="reading-check"><input type="checkbox" data-reading-id="article-11" aria-label="Označit článek 11 jako přečtený"> Přečteno</label>
       </article>
       <article class="entry">
         <h3><a href="https://learn.chatgpt.com/docs/non-interactive-mode" target="_blank" rel="noopener noreferrer">Codex exec: spouštění AI z bash skriptu bez API účtu</a></h3>
         <p>Oficiální dokumentace. codex exec, JSON výstup, oprávnění, worktrees, auth z přihlášeného ChatGPT Plus. Základ pro vlastní GitHub issue → PR smyčku. Pozor: --full-auto už není podporované.</p>
         <div class="meta"><span class="priority p1">Priorita P1</span> · <a class="read" href="https://learn.chatgpt.com/docs/non-interactive-mode" target="_blank" rel="noopener noreferrer">Otevřít článek</a></div>
+      <label class="reading-check"><input type="checkbox" data-reading-id="article-12" aria-label="Označit článek 12 jako přečtený"> Přečteno</label>
       </article>
       <article class="entry">
         <h3><a href="https://github.com/umputun/ralphex" target="_blank" rel="noopener noreferrer">Ralphex: autonomní task + review smyčka přes Codex subscription</a></h3>
         <p>Open-source projekt s přepínačem --codex. Úkoly podle plánu, opakované testování, review, commit, izolované worktrees, zvládání limitů. Autor výslovně uvádí práci na stávajícím Codex subscription. Pokročilejší konfigurace.</p>
         <div class="meta"><span class="priority p1">Priorita P1</span> · <a class="read" href="https://github.com/umputun/ralphex" target="_blank" rel="noopener noreferrer">Otevřít článek</a></div>
+      <label class="reading-check"><input type="checkbox" data-reading-id="article-13" aria-label="Označit článek 13 jako přečtený"> Přečteno</label>
       </article>
       <article class="entry">
         <h3><a href="https://www.chrismdp.com/running-ralph-loops-is-easy/" target="_blank" rel="noopener noreferrer">Chris Parsons: Ralph In One Line, No Setup</a></h3>
         <p>Zakladatelská zkušenost po 4 měsících provozu: markdown tickets, jeden agent, context management, kritéria dokončení. Varování: sám uvádí Max20 pro soustavný provoz; na Pro brát jako lehkou inspiraci, nikoli důkaz stejného výkonu.</p>
         <div class="meta"><span class="priority p2">Priorita P2</span> · <a class="read" href="https://www.chrismdp.com/running-ralph-loops-is-easy/" target="_blank" rel="noopener noreferrer">Otevřít článek</a></div>
+      <label class="reading-check"><input type="checkbox" data-reading-id="article-14" aria-label="Označit článek 14 jako přečtený"> Přečteno</label>
       </article>
       <article class="entry">
         <h3><a href="https://dev.to/rickvian/ralph-ing-easy-and-safe-ralph-workflow-1o72" target="_blank" rel="noopener noreferrer">Ralph Workflow: bezpečný autonomní backlog v Dockeru</a></h3>
         <p>Praktický návod autora ralph-workflow. Codex/Claude přes CLI, devcontainer, izolace credentialů, prd.yaml, jeden issue na iteraci a automatické testy. Pro důvěryhodné nastavení bez neomezených práv na Macu.</p>
         <div class="meta"><span class="priority p2">Priorita P2</span> · <a class="read" href="https://dev.to/rickvian/ralph-ing-easy-and-safe-ralph-workflow-1o72" target="_blank" rel="noopener noreferrer">Otevřít článek</a></div>
+      <label class="reading-check"><input type="checkbox" data-reading-id="article-15" aria-label="Označit článek 15 jako přečtený"> Přečteno</label>
       </article>
       <article class="entry">
         <h3><a href="https://github.com/spietrza/vanguard" target="_blank" rel="noopener noreferrer">Vanguard: GitHub backlog → AI implementace → draft PR na subscription</a></h3>
         <p>Open-source software factory. GitHub/GitLab/Linear queue, izolovaný Docker, implementace/review/testy a PR. Dokumentuje použití Codex ChatGPT subscription bez API účtu. Experimentálnější; pozor na bezpečnost OAuth auth.json a různé CI režimy.</p>
         <div class="meta"><span class="priority p2">Priorita P2</span> · <a class="read" href="https://github.com/spietrza/vanguard" target="_blank" rel="noopener noreferrer">Otevřít článek</a></div>
+      <label class="reading-check"><input type="checkbox" data-reading-id="article-16" aria-label="Označit článek 16 jako přečtený"> Přečteno</label>
       </article>
       <article class="entry">
         <h3><a href="https://support.claude.com/en/articles/14554000-claude-code-power-user-tips" target="_blank" rel="noopener noreferrer">Claude Code power user tips: /loop, /schedule, agenti a ověření</a></h3>
         <p>Oficiální praktické rady Anthropic. /loop pro lokální pravidelné úlohy, /schedule pro cloud Routines; worktrees, verification, permissions a neinteraktivní workflow. Nejdůležitější zásada: agent musí ověřit výsledek.</p>
         <div class="meta"><span class="priority p2">Priorita P2</span> · <a class="read" href="https://support.claude.com/en/articles/14554000-claude-code-power-user-tips" target="_blank" rel="noopener noreferrer">Otevřít článek</a></div>
+      <label class="reading-check"><input type="checkbox" data-reading-id="article-17" aria-label="Označit článek 17 jako přečtený"> Přečteno</label>
       </article>
       <article class="entry">
         <h3><a href="https://developers.openai.com/blog/run-long-horizon-tasks-with-codex" target="_blank" rel="noopener noreferrer">Codex: 25hodinový autonomní běh a projektová paměť</a></h3>
         <p>Derrick Choi (OpenAI): konkrétní experiment, složky spec/plan/runbook/progress, testy a opravy po iteracích. Není to důkaz, že takový běh zvládne Plus limit; relevantní pro návrh kratších samostatných tasků.</p>
         <div class="meta"><span class="priority p3">Priorita P3</span> · <a class="read" href="https://developers.openai.com/blog/run-long-horizon-tasks-with-codex" target="_blank" rel="noopener noreferrer">Otevřít článek</a></div>
+      <label class="reading-check"><input type="checkbox" data-reading-id="article-18" aria-label="Označit článek 18 jako přečtený"> Přečteno</label>
       </article>
       <!-- ARTICLES:AI:END -->
     </section>
@@ -154,5 +180,38 @@
     <aside class="note"><strong>Zdroj:</strong> Projekt „Ke čtení“ v Todoistu, stav k 2. 11. 2026. Stránka je statická, budoucí změny v Todoistu se sem automaticky nepřenášejí.</aside>
   </main>
   <footer><div class="wrap">Jednoduchá čtečka odkazů · GitHub Pages · bez reklam a sledovacích skriptů</div></footer>
+  <script>
+    (function () {
+      var key = 'reading-page-checked-v1';
+      var state = {};
+      try { state = JSON.parse(localStorage.getItem(key) || '{}') || {}; } catch (e) {}
+      // První článek už byl přečten. Stav lze ručně kdykoliv změnit.
+      if (!Object.prototype.hasOwnProperty.call(state, 'article-1')) state['article-1'] = true;
+      var checks = Array.prototype.slice.call(document.querySelectorAll('.reading-check input'));
+      var filter = document.getElementById('hide-read');
+      var status = document.getElementById('reading-status');
+      function refresh() {
+        var readCount = 0;
+        checks.forEach(function (input) {
+          var read = !!state[input.getAttribute('data-reading-id')];
+          input.checked = read;
+          var card = input.closest('.entry');
+          card.classList.toggle('is-read', read);
+          card.classList.toggle('hidden-read', read && filter.checked);
+          if (read) readCount++;
+        });
+        status.textContent = 'Přečteno ' + readCount + ' z ' + checks.length;
+      }
+      checks.forEach(function (input) {
+        input.addEventListener('change', function () {
+          state[input.getAttribute('data-reading-id')] = input.checked;
+          try { localStorage.setItem(key, JSON.stringify(state)); } catch (e) {}
+          refresh();
+        });
+      });
+      filter.addEventListener('change', refresh);
+      refresh();
+    }());
+  </script>
 </body>
 </html>
