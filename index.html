@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="Jednoduchá knihovna článků ke čtení na iPadu.">
+  <title>Ke čtení — moje knihovna</title>
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --card: #ffffff;
+      --text: #172033;
+      --muted: #637084;
+      --line: #e2e8f0;
+      --accent: #345de3;
+      --accent-soft: #eaf0ff;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font: 17px/1.55 -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+      -webkit-text-size-adjust: 100%;
+    }
+    .wrap { max-width: 820px; margin: 0 auto; padding: 0 22px; }
+    header {
+      padding: 47px 0 27px;
+      border-bottom: 1px solid var(--line);
+      background: var(--card);
+    }
+    .eyebrow {
+      font-size: 12px; text-transform: uppercase; letter-spacing: .15em;
+      color: var(--accent); font-weight: 750;
+    }
+    h1 {
+      margin: 9px 0 10px; font-size: 43px;
+      line-height: 1.12; letter-spacing: -.045em;
+    }
+    header p { color: var(--muted); max-width: 570px; margin: 0; }
+    nav { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 28px; }
+    nav a {
+      text-decoration: none; color: var(--text); border: 1px solid var(--line);
+      background: var(--bg); border-radius: 99px; padding: 9px 16px;
+      font-size: 15px; font-weight: 650;
+    }
+    nav a:focus, nav a:hover { border-color: var(--accent); color: var(--accent); }
+    main { padding-top: 26px; padding-bottom: 32px; }
+    section { margin-bottom: 29px; scroll-margin-top: 20px; }
+    .section-head {
+      display: flex; align-items: baseline; gap: 10px;
+      border-bottom: 1px solid var(--line); margin-bottom: 12px;
+    }
+    h2 { margin: 0 0 10px; font-size: 24px; letter-spacing: -.03em; }
+    .hint { font-size: 14px; color: var(--muted); }
+    .entry {
+      background: var(--card); border: 1px solid var(--line);
+      border-radius: 13px; padding: 18px 20px; margin: 12px 0;
+    }
+    .entry h3 { margin: 0 0 6px; font-size: 19px; line-height: 1.35; }
+    .entry h3 a { color: var(--text); text-decoration: none; }
+    .entry h3 a:hover, .entry h3 a:focus { color: var(--accent); text-decoration: underline; }
+    .entry p { color: var(--muted); font-size: 15px; margin: 0 0 11px; }
+    .entry .meta { font-size: 13px; color: var(--muted); }
+    .entry .read { color: var(--accent); text-decoration: none; font-weight: 700; }
+    .empty {
+      padding: 19px 20px; border: 1px dashed var(--line);
+      border-radius: 12px; color: var(--muted);
+      font-size: 15px; background: var(--card);
+    }
+    .note {
+      padding: 17px 20px; background: var(--accent-soft);
+      color: #1d3575; border-radius: 12px; font-size: 15px; margin-top: 12px;
+    }
+    footer { color: var(--muted); border-top: 1px solid var(--line); padding: 22px 0 40px; font-size: 13px; }
+    @media (max-width: 600px) {
+      .wrap { padding: 0 17px; }
+      header { padding-top: 31px; }
+      h1 { font-size: 37px; }
+      nav a { padding: 8px 13px; }
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #101723; --card: #172131; --text: #eef3fc;
+        --muted: #aebbd0; --line: #344255; --accent: #94b0ff;
+        --accent-soft: #1a2b49;
+      }
+      .note { color: #d6e3ff; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <div class="eyebrow">Moje knihovna</div>
+      <h1>Ke čtení<span aria-hidden="true">.</span></h1>
+      <p>Články vybrané v ChatGPT. Jedno místo pro všechno, co stojí za přečtení. Stačí vybrat téma a otevřít odkaz.</p>
+      <nav aria-label="Kategorie">
+        <a href="#ai">AI</a>
+        <a href="#backend">Backend</a>
+        <a href="#historie">Historie</a>
+        <a href="#ostatni">Ostatní</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section id="ai">
+      <div class="section-head"><h2>AI</h2><span class="hint">Agenti, Codex, nástroje</span></div>
+      <!-- ARTICLES:AI:START -->
+      <div class="empty">Zatím tu nejsou žádné články.</div>
+      <!-- ARTICLES:AI:END -->
+    </section>
+
+    <section id="backend">
+      <div class="section-head"><h2>Backend</h2><span class="hint">Node.js, architektura, databáze</span></div>
+      <!-- ARTICLES:BACKEND:START -->
+      <div class="empty">Zatím tu nejsou žádné články.</div>
+      <!-- ARTICLES:BACKEND:END -->
+    </section>
+
+    <section id="historie">
+      <div class="section-head"><h2>Historie</h2><span class="hint">Události a souvislosti</span></div>
+      <!-- ARTICLES:HISTORIE:START -->
+      <div class="empty">Zatím tu nejsou žádné články.</div>
+      <!-- ARTICLES:HISTORIE:END -->
+    </section>
+
+    <section id="ostatni">
+      <div class="section-head"><h2>Ostatní</h2><span class="hint">Všechno zajímavé</span></div>
+      <!-- ARTICLES:OSTATNI:START -->
+      <div class="empty">Zatím tu nejsou žádné články.</div>
+      <!-- ARTICLES:OSTATNI:END -->
+    </section>
+
+    <aside class="note">
+      <strong>Jak sem dostat článek?</strong> V ChatGPT stačí napsat „Ulož tenhle článek do knihovny na iPad“.
+      Po propojení GitHub repozitáře bude možné stránku aktualizovat přímo z chatu.
+    </aside>
+  </main>
+
+  <footer><div class="wrap">Jednoduchá čtečka odkazů · GitHub Pages · bez reklam a sledovacích skriptů</div></footer>
+</body>
+</html>
